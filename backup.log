@@ -2,3 +2,8 @@
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 backup.log
 fatal: could not read Username for 'https://github.com': Device not configured
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+fatal: unable to access 'https://github.com/erra6/triage.git/': Could not resolve host: github.com
