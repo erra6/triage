@@ -1,0 +1,22 @@
+# Archivos y carpetas de sistema
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+.history/
+*.code-workspace
+
+# Archivos de logs
+*.log
+backend/log/*.log
+
+# Archivos de backup
+*.bak
+*.old
+*.swp
+restore_from_vscode.sh
+
+# Archivos temporales de PHP
+*.cache
+*.tmp
