@@ -1,0 +1,39 @@
+<?php
+// Normalizado por fix_all_includes.php (2025-09-18)
+require_once __DIR__ . '/../config/path.php';
+require_once CLASSES_PATH . '/Database.php';
+require_once CONFIG_PATH   . '/db.php';
+require_once INCLUDES_PATH . '/fconfig.php';
+
+
+
+
+
+
+
+
+
+
+// … resto
+
+	session_start();
+        if(!(isset($_SESSION['usuario']))){
+            header("location:../index.php");
+        }
+			
+	$resultado = mysql_connect("localhost","triage","Stro4pass.") or die("no se pudo conectar al servidor");
+
+	$db=mysql_select_db("triage",$resultado);
+		
+	$query = "SELECT IDEstadoPuesto FROM puestos where IDEstadoPuesto!=-1 ORDER BY IDPuesto";
+
+	$comprobacion = mysql_query($query) or die (mysql_error());
+	
+	$i=0;
+	while($row=mysql_fetch_array($comprobacion)){
+		
+		print $row['IDEstadoPuesto']."&";
+		$i=$i+1;
+	}
+
+?>

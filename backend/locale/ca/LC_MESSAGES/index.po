@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Jon Legarrea
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Front 1.0\n"
+"Report-Msgid-Bugs-To: jon.legarrea@unavarra.es\n"
+"POT-Creation-Date: 2014-08-19 22:38+0200\n"
+"PO-Revision-Date: 2014-08-19 22:50+0100\n"
+"Last-Translator: Jon Legarrea <jon.legarrea@unavarra.es>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Catalan\n"
+"X-Poedit-Country: SPAIN\n"
+
+#: index.php:71
+msgid "Welcome"
+msgstr "Benvingut"
+
+#: index.php:89
+msgid "LogIn"
+msgstr "Inici"
+
+#: index.php:91
+msgid "Username"
+msgstr "Usuari"
+
+#: index.php:92
+msgid "Password"
+msgstr "Contrasenya"
+
+#: index.php:95
+msgid "Log in"
+msgstr "Entrar"
+
+#: index.php:96
+msgid "Forgot your password?"
+msgstr "Has oblidat la contrasenya?"
+
+#: index.php:96
+msgid "Register"
+msgstr "Registrar"
+

@@ -1,0 +1,9 @@
+<VirtualHost *:80>
+    ServerName front.yougetyour.info
+#    DocumentRoot /var/www/front2013
+    DocumentRoot /var/www/dev_front
+    ErrorLog /var/log/apache2/dev_error_front.log
+    LogLevel warn
+    CustomLog /var/log/apache2/dev_access_front.log combined
+    ServerSignature Off
+</VirtualHost>

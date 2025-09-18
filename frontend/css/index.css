@@ -1,0 +1,268 @@
+body{
+   margin:0px;
+   padding:0px;
+   border:0px;
+   font-family: Lato,sans-serif;
+}
+
+h1{
+margin-top:0px;
+margin-bottom:0px;
+margin-left:auto;
+margin-right:auto;
+text-align:center;
+}
+
+ul {
+    list-style: outside none none;
+	-moz-padding-start: 0px;
+	margin-right:  auto;
+	margin-left:   auto;
+}
+
+.cabecera, .pie,{
+	height: 44px;
+}
+
+
+
+
+
+/* ----------------------------------------------------------------------- css pagina primera - home */
+#contenido_home{
+	text-align:center;
+	margin:   auto;
+/*	height:640px;*/
+}
+
+#imagen_logo, #login, #boton_entrada{
+	margin-top:  25px;
+}
+
+.custom-btn {
+    width: 162px;
+    margin-left: -3px;
+}
+
+.custom-btn-limpiar {
+    width: 100px;
+    height: 16px;
+}
+
+.ui-content a{
+	margin-top:   10px;
+	margin-right:  auto;
+	margin-left:   auto;
+	margin-bottom:  0px;
+}
+
+
+/* --------------------------------------------------------------------fin css pagina primera */
+
+
+/* ----------------------------------------------------------------------- css pagina segunda */
+
+/* ----------------------------------------------------------------------------------------------------- panel tartem */
+
+#tartem_panel{
+ text-align:center;
+ margin:auto;
+}
+
+#centro_tartem {
+   text-align:center;
+}
+
+#lista_tartem{
+    list-style-type:none;
+ }
+
+#lista_tartem li {
+    width:159px;
+	text-align:center;
+	margin:auto;
+}
+
+#lista_tartem li a {
+   display:block; //Convertimos el vínculo en un bloque.
+   padding:0px;
+   text-align:center;
+   color:#FFFFFF;
+}
+#centro_izquierda_5 {
+    margin-left:9em;
+ 
+}
+
+/* ----------------------------------------------------------------------------------------------------- fin panel tartem */
+
+/* ----------------------------------------------------------------------- otros */
+
+#canvas { 
+	margin-left: 120px; 
+	margin-top: 50px; 
+	border: 1px solid #ccc; 
+	display: block; 
+	float:left; 
+
+}
+#sexo {
+    float:right;
+	 margin-right:70px;
+}
+
+#centro_derecha{
+   float:right;
+   margin-right:70px;
+
+}
+
+#contenedor_abcde {
+    float:right;
+	 margin-right:70px;
+}
+
+
+#cuerpo {
+    float:right;
+	 margin-right:70px;
+}
+
+
+
+/*-----------------------------*/
+
+#menu_ppal{
+    display: block;
+	margin: 0px;
+    padding: 0px;
+    border: 0px none;
+    vertical-align: baseline;
+}
+
+#menu_ppal ul {
+    float: center;
+    font-size:10px;
+}
+
+#menu_ppal ul li {
+    display: inline-block;
+    float: left;
+}
+
+#menu_ppal ul li.m1 {
+    border-top: 3px solid #FF9525;
+}
+#menu_ppal ul li.m2 {
+    border-top: 3px solid #D2E632;
+}
+#menu_ppal ul li.m3 {
+    border-top: 3px solid #41D8FD;
+}
+#menu_ppal ul li.m4 {
+    border-top: 3px solid #EFD63F;
+}
+#menu_ppal ul li.m5 {
+    border-top: 3px solid #FD41F9;
+}
+
+
+menu_enviar ul li a {
+    text-decoration: none;
+ 	text-transform: uppercase;
+
+ }
+
+ 
+ #color11, #color22, #color33, #color44, #color55,#color66{
+   background-color:#6c81b4;
+   color:fff;
+ }
+ 
+ 
+ 
+ /* -------------------------------------------------------------------------------------------------------------------- css listado tartem */
+ 
+ .contenido_rojo{
+	background-color:red;	
+ }
+
+ 
+.lista_tartem_rojo{   
+	float:left;
+}
+
+.left{   
+	float:left;
+}
+.margin5{
+	margin:0px 5px;
+}
+
+ 
+.tartem_negro,.tartem_negro a{
+	background-color:rgb(0, 0, 0);	color: rgb(255, 255, 255) !important;
+	text-decoration: none !important;
+}
+.tartem_rojo_negro, .tartem_rojo_negro a{
+	background-color: rgb(231, 0, 0);color: rgb(255, 255, 255) !important;
+	text-decoration: none !important;
+}
+.tartem_rojo,.tartem_rojo a{
+	background-color: rgb(231, 0, 0);color: rgb(255, 255, 255) !important;
+	text-decoration: none !important;
+}
+.tartem_amarillo,.tartem_amarillo a{
+	background-color: rgb(255, 222, 42); color: rgb(0, 0, 0) !important;	
+	text-decoration: none !important;
+}
+.tartem_verde,.tartem_verde a{
+	background-color: rgb(10, 130, 90);color: rgb(255, 255, 255) !important;
+	text-decoration: none !important;
+}
+
+.text_tartem{
+	text-decoration: none;
+	font-size: 120%;
+}
+
+.text_negro{
+	color: rgb(255, 255, 255);
+}
+.text_rojo_negro{
+	color: rgb(255, 255, 255);
+}
+.text_rojo{
+	color: rgb(255, 255, 255);
+}
+.text_amarillo{
+	color: rgb(0, 0, 0);	
+}
+.text_verde{
+	color: rgb(255, 255, 255);
+}
+ 
+
+/* ------------------------------------------------------------------------------------------------------------------------fin listado tartem */
+
+video { 
+	border: 1px solid #ccc; 
+	display: block; 
+	margin-left: 120px; 
+	margin-top: 50px; 
+	float:left;
+}
+
+
+
+#botones { 
+	margin-left: 120px; 
+	margin-top: 50px; 
+	display: block; 
+	float:left; 
+}
+
+
+.hospital,.ambulancia{
+	max-width:215px;
+}

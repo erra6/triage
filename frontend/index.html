@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="expires" content="0" />
+
+    <title>TRIAGE</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/aran.css" />
+    <link rel="stylesheet" href="css/index.css" />
+
+    <!-- JS: librerías externas -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.4.5.js"></script>
+    <script src="js/fastclick.min.js"></script>
+    <!-- <script src="cordova.js"></script> habilitar solo si se usa en dispositivo con Cordova -->
+
+    <!-- JS: configuración y utilidades -->
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+
+    <!-- JS: módulos principales -->
+    <script src="js/api.js"></script>
+    <script src="js/vista.js"></script>
+    <script src="js/camara.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+
+    <!-- ========== HOME (LOGIN) ========== -->
+    <!-- PRIMERA PAGINA - HOME -->
+<div data-role="page" id="home" data-theme="c">
+    <!-- cabecera primera pagina -->
+    <div data-role="header" class="cabecera" data-role="fixer" data-fullscreen="false">  
+        <h1>TRIAGE</h1>
+    </div><!-- fin cabecera primera pagina-->
+    
+    <!-- contenido primera pagina -->
+    <div data-role="content" id="contenido_home" data-theme="c">
+        <form id="login" method="POST" action="log/loglog.php"> 
+            <div class="form-group">
+                <input id="loginname" name="username" class="form-control login-field" type="text" placeholder="Usuario" required>
+                <label class="login-field-icon fui-user" for="loginname"></label>
+            </div>
+            <div class="form-group">
+                <input id="loginpass" name="password" class="form-control login-field" type="password" placeholder="Contraseña" required>
+                <label class="login-field-icon fui-lock" for="loginpass"></label>
+            </div>
+            <img id="imagen_logo" src="img/logo.png" alt="Logo TRIAGE">
+            <button type="submit" id="boton_entrada" class="custom-btn" data-icon="arrow-r" data-iconpos="right">
+                Entrar
+            </button>
+        </form>
+        <!-- Mostrar error si llega parámetro error -->
+        <?php if (isset($_GET['error'])): ?>
+            <p style="color:red; text-align:center;">Usuario o contraseña incorrectos</p>
+        <?php endif; ?>
+    </div><!-- fin contenido primera pagina -->
+    
+    <!-- pie primera pagina -->
+    <div data-role="footer" class="pie">
+        <h3>CONSELH GENERAU D'ARAN - POMPIÈRS</h3>
+    </div><!-- fin pie primera pagina -->
+</div>
+
+
+    <!-- ========== SÍNTOMAS ========== -->
+    <div data-role="page" id="sintomas" data-theme="c">
+
+        <!-- Panel de sintomatología -->
+        <div data-role="panel" data-position="left" data-display="overlay" id="sintomas_panel">
+            <img src="img/borrar.png" alt="Cerrar" style="width:20px; float:right" onclick="$('#sintomas_panel').panel('close');">
+            <h1 id="sp_titulo"></h1>
+            <div data-role="fieldcontain">
+                <fieldset data-role="controlgroup" id="sp_fieldset"></fieldset>
+            </div>
+            <a data-role="button" id="resetea" data-theme="c" data-icon="arrow-r" data-iconpos="right" onclick="enviar_sintomas()">Enviar síntomas</a>
+            <div id="numanatomia" style="display:none"></div>
+        </div>
+
+        <!-- Panel de tartem -->
+        <div data-role="panel" data-position="right" data-display="overlay" id="tartem_panel">
+            <img src="img/borrar.png" alt="Cerrar" style="width:20px; float:right" onclick="$('#tartem_panel').panel('close');">
+            <h1>TARTEM</h1>
+            <div id="centro_tartem">
+                <ul id="lista_tartem">
+                    <li><a id="tartem"></a></li>
+                    <div id="imagen_tartem"></div>
+                </ul>
+            </div>
+            <div id="centro_numeros">
+                <div>
+                    <img src="img/uno.png" alt="1" width="75" height="75" onclick="anadir(1)">
+                    <img src="img/dos.png" alt="2" width="75" height="75" onclick="anadir(2)">
+                    <img src="img/tres.png" alt="3" width="75" height="75" onclick="anadir(3)">
+                </div>
+                <div>
+                    <img src="img/cuatro.png" alt="4" width="75" height="75" onclick="anadir(4)">
+                    <img src="img/cinco.png" alt="5" width="75" height="75" onclick="anadir(5)">
+                    <img src="img/seis.png" alt="6" width="75" height="75" onclick="anadir(6)">
+                </div>
+                <div>
+                    <img src="img/siete.png" alt="7" width="75" height="75" onclick="anadir(7)">
+                    <img src="img/ocho.png" alt="8" width="75" height="75" onclick="anadir(8)">
+                    <img src="img/nueve.png" alt="9" width="75" height="75" onclick="anadir(9)">
+                </div>
+                <div>
+                    <img src="img/borrar.png" alt="Borrar" width="75" height="75" onclick="$('#tartem').text('')">
+                    <img src="img/cero.png" alt="0" width="75" height="75" onclick="anadir(0)">
+                    <img src="img/atras.png" alt="Atrás" width="75" height="75" onclick="$('#tartem').text($('#tartem').text().slice(0,-1))">
+                </div>
+                <div>
+                    <a data-role="button" class="custom-btn" data-icon="arrow-r" data-iconpos="right" onclick="enviar()">Enviar tartem</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cabecera -->
+        <div data-role="header">
+            <h1>TRIAGE - TARTEM</h1>
+            <div id="tamanos" style="display:none"></div>
+            <div data-role="navbar" id="menu_ppal">
+                <ul>
+                    <li><a href="#sintomas" data-transition="flip" onclick="refrescar()">Nuevo tartem</a></li>
+                    <li><a href="#listado_tartem" data-transition="flip">Listado tartem</a></li>
+                    <li><a href="http://triage.78e.org/" onclick="window.open(this.href);return false;">Vista coordinación</a></li>
+                    <li><a href="#home" data-transition="flip" onclick="navigator.app.exitApp()">Salir</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contenido -->
+        <div data-role="content" data-theme="c">
+            <div align="center"><canvas id="cuerpo"></canvas></div>
+            <div align="center"><canvas id="contenedor_abcde"></canvas></div>
+            <div align="center"><canvas id="sexo"></canvas></div>
+            <div align="center"><canvas id="centro_derecha"></canvas></div>
+        </div>
+
+        <!-- Footer -->
+        <div data-role="footer" data-theme="c">
+            <div data-role="navbar" id="menu_enviar">
+                <ul>
+                    <li><a id="color11" href="#">id tartem:</a></li>
+                    <li><a id="color22" href="#">sexo/edad</a></li>
+                    <li><a id="color33" href="#">ABCD</a></li>
+                    <li><a id="color44" href="#">síntomas</a></li>
+                    <li><a id="color55" href="#filiacion" data-transition="flip">fotografía</a></li>
+                </ul>
+            </div>
+            <h3>CONSELH GENERAU D'ARAN - POMPIÈRS</h3>
+        </div>
+    </div>
+
+    <!-- ========== LISTADO TARTEM ========== -->
+    <div data-role="page" id="listado_tartem" data-theme="c">
+        <div data-role="header">
+            <div id="tartemes_modified" style="display:none"></div>
+            <div id="tartemes_interval" style="display:none"></div>
+            <h1>TRIAGE - LISTADO TARTEM</h1>
+            <div data-role="navbar" id="menu_ppal">
+                <ul>
+                    <li><a href="#sintomas" data-transition="flip">Nuevo tartem</a></li>
+                    <li><a href="#listado_tartem" data-transition="flip" class="ui-btn-activate ui-state-persist">Listado tartem</a></li>
+                    <li><a href="http://triage.78e.org/" onclick="window.open(this.href);return false;">Vista coordinación</a></li>
+                    <li><a href="#home" data-transition="flip" onclick="navigator.app.exitApp()">Salir</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content" id="contenido_listado" data-theme="c"></div>
+    </div>
+
+    <!-- ========== FILIACIÓN - FOTOGRAFÍA ========== -->
+    <div data-role="page" id="filiacion" data-theme="c">
+        <div data-role="header">
+            <h1>TRIAGE - FILIACIÓN - FOTOGRAFÍA</h1>
+            <div data-role="navbar" id="menu_ppal">
+                <ul>
+                    <li><a href="#sintomas" data-transition="flip">Nuevo tartem</a></li>
+                    <li><a href="#listado_tartem" data-transition="flip">Listado tartem</a></li>
+                    <li><a href="http://triage.78e.org/" onclick="window.open(this.href, '_system');return false;">Vista coordinación</a></li>
+                    <li><a href="#home" data-transition="flip" onclick="navigator.app.exitApp()">Salir</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content" data-theme="c" id="filiacion_fotografia">
+            <h1>Filiación - Fotografía</h1>
+            <div id="photo-content">
+                <div id="botones">
+                    <a data-role="button" class="custom-btn" data-icon="arrow-r" data-iconpos="right" onclick="capturePhoto();">Tomar foto</a>
+                    <a data-role="button" class="custom-btn" data-icon="arrow-r" data-iconpos="right" onclick="sendPhoto();">Enviar foto</a>
+                </div>
+                <div style="margin-left:140px;margin-top:20px;">
+                    <progress max="400" value="1"></progress>
+                </div>
+                <div id="fotonumtartem"></div>
+                <div><img style="width:500px;height:375px;" id="smallImage" src="" alt="Foto paciente" /></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
